@@ -699,7 +699,8 @@ export const makeSocket = (config: SocketConfig) => {
 	if(printQRInTerminal) {
 		printQRIfNecessaryListener(ev, logger)
 	}
-
+	if(creds.me?.id && creds.signalIdentities?.length) 
+		creds.me.id = creds.signalIdentities[0].identifier.name;
 	return {
 		type: 'md' as 'md',
 		ws,
