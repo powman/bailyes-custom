@@ -67,8 +67,8 @@ export const makeSocket = (config: SocketConfig) => {
 		qrTimeout,
 		makeSignalRepository,
 	} = config
-	if(authState.creds?.me?.id && authState.creds?.signalIdentities?.length)
-		authState.creds.me.id = authState.creds.signalIdentities[0].identifier.name;
+	// if(authState.creds?.me?.id && authState.creds?.signalIdentities?.length)
+	// 	authState.creds.me.id = authState.creds.signalIdentities[0].identifier.name;
 
 	let url = typeof waWebSocketUrl === 'string' ? new URL(waWebSocketUrl) : waWebSocketUrl
 
