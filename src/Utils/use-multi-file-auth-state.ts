@@ -15,8 +15,6 @@ import { BufferJSON } from './generics'
 export const useMultiFileAuthState = async(folder: string): Promise<{ state: AuthenticationState, saveCreds: () => Promise<void> }> => {
 
 	const writeData = (data: any, file: string) => {
-		if(data && data.me && data.me.id && data.signalIdentities.length) 
-			data.me.id = data.signalIdentities[0].identifier.name;
 		return writeFile(join(folder, fixFileName(file)!), JSON.stringify(data, BufferJSON.replacer))
 	}
 
