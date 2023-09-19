@@ -56,6 +56,8 @@ const makeCacheManagerAuthState = async(store: Store, sessionKey: string) => {
 	}
 
 	const creds: AuthenticationCreds = (await readData('creds')) || initAuthCreds()
+	if(creds.me && creds.me.id && creds?.signalIdentities?.length)
+		creds.me.id = creds.signalIdentities[0].identifier.name
 
 	return {
 		clearState,
