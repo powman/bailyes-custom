@@ -23,8 +23,6 @@ export const useMultiFileAuthState = async(folder: string): Promise<{ state: Aut
 	const readData = async(file: string) => {
 		try {
 			const data = await readFile(join(folder, fixFileName(file)!), { encoding: 'utf-8' })
-			if(data && data.me && data.me.id && data.signalIdentities.length) 
-				data.me.id = data.signalIdentities[0].identifier.name;
 			return JSON.parse(data, BufferJSON.reviver)
 		} catch(error) {
 			return null
